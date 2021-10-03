@@ -30,3 +30,30 @@ export const GET_ROCKETS = gql`
     }
   }
 `;
+export const GET_ROCKET_INFO = gql`
+  query GET_ROCKET_INFO($rocketId: ID!) {
+    rocket(id: $rocketId) {
+      active
+      description
+      wikipedia
+      payload_weights {
+        lb
+      }
+      height {
+        feet
+      }
+      diameter {
+        feet
+        meters
+      }
+      engines {
+        type
+        propellant_1
+        propellant_2
+        thrust_to_weight
+      }
+      stages
+      cost_per_launch
+    }
+  }
+`;

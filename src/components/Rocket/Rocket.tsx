@@ -8,21 +8,20 @@ export default function Rocket() {
     id: string;
   };
   const { id } = useParams<QuizParams>();
-  const { error, data } = useQuery(query.GET_ROCKETS);
-  console.log(data);
+  const { error, data } = useQuery(query.GET_ROCKET_INFO, {
+    variables: { rocketId: id },
+  });
+  console.log(data, id);
   if (error) {
     console.log(error);
   }
   return (
     <div>
-      <p>{id}</p>
+      <p>{data?.rocket.description}</p>
       <img
         src="https://jhammanpsu.github.io/project-one-spacex/images/spacexwebsitelogo.png"
         alt="spacex-logo"
       />
-      {data?.rockets.map((rocket: { name: string; id: string }) => (
-        <Link to={`/rocket/${rocket.id}`}>{rocket.name}</Link>
-      ))}
     </div>
   );
 }

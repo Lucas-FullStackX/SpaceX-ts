@@ -15,8 +15,10 @@ export default function Rockets() {
         src="https://jhammanpsu.github.io/project-one-spacex/images/spacexwebsitelogo.png"
         alt="spacex-logo"
       />
-      {data?.rockets.map((rocket: { name: string, id: string }) => (
-        <Link to={`/rocket/${rocket.id}`}>{rocket.name}</Link>
+      {data?.rockets.map((rocket: { name: string; id: string }) => (
+        <Link key={rocket.id} to={`/rocket/${rocket.id}`}>
+          {rocket.name}
+        </Link>
       ))}
     </div>
   );
