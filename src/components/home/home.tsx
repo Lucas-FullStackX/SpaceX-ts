@@ -2,6 +2,8 @@ import React from 'react';
 import {useQuery} from '@apollo/client'
 import * as query from '../../Queries'
 
+// main component
+
 export default function Home(){
     const {loading,error,data}= useQuery(query.GET_INFO)
     console.log(data)
