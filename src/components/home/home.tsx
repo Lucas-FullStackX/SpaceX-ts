@@ -10,5 +10,5 @@ export default function Home(){
     if(error){
         console.log(error)
     }
-    return(<div>{loading ? (<div>loading...</div>) : error? (<div>error{error}</div>): (<div><h1>{data.company.name}</h1></div>)}</div>)
+    return(<div>{loading ? (<div>loading...</div>) : error? (<div>error{error}</div>): (<div><h1>Company:{data.company.name}</h1></div>)}</div>)
 } 
